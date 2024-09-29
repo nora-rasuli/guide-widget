@@ -104,11 +104,10 @@ export default {
       this.selectedAnswers[questionIndex] = imageSrc;
     },
     goToSolution() {
+      this.$store.commit("setUserAnswers", this.selectedAnswers); // Save answers to Vuex
+
       this.$router.push({
         path: "/solution",
-        query: {
-          answers: JSON.stringify(this.selectedAnswers),
-        },
       });
     },
   },

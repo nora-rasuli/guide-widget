@@ -1,10 +1,14 @@
 import "vuetify/styles";
 import { createVuetify } from "vuetify";
-import { mdi } from "vuetify/iconsets/mdi"; // For icons
+import { aliases, mdi } from "vuetify/iconsets/mdi"; // For icons
 
 const vuetify = createVuetify({
   icons: {
-    defaultSet: mdi,
+    defaultSet: "mdi", // Use Material Design Icons (mdi)
+    aliases,
+    sets: {
+      mdi,
+    },
   },
   theme: {
     themes: {

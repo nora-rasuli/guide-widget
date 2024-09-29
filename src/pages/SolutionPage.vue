@@ -33,7 +33,8 @@
         </ul>
       </v-card-text>
     </v-card>
-
+    <!-- Feedback form at the bottom of the solution -->
+    <FeedbackForm />
     <v-btn color="primary" class="mt-4" @click="goBack"
       >Back to Questions</v-btn
     >
@@ -41,13 +42,15 @@
 </template>
 
 <script>
+import FeedbackForm from "@/components/FeedbackForm.vue"; // Import FeedbackForm
+import { mapState } from "vuex";
 export default {
   name: "SolutionPage",
-  props: {
-    userAnswers: {
-      type: Array,
-      required: true,
-    },
+  components: {
+    FeedbackForm,
+  },
+  computed: {
+    ...mapState(["userAnswers"]), // Map the state from Vuex to get user answers
   },
   methods: {
     goBack() {

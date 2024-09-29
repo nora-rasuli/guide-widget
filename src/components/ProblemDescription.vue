@@ -36,7 +36,7 @@ export default {
   methods: {
     submitDescription() {
       this.submitted = true;
-      console.log("Problem description submitted:", this.problemDescription);
+      this.$store.commit("setProblemDescription", this.setProblemDescription);
     },
     goToQuestions() {
       this.$router.push("/questions"); // Navigate to Questions page
