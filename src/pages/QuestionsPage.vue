@@ -4,13 +4,7 @@
       <h2 v-if="currentQuestion">{{ currentQuestion.question }}</h2>
 
       <!-- Show the first question: Instrument Cluster Powered -->
-      <div
-        v-if="currentQuestion && currentQuestion.type === 'radio'"
-        :class="{
-          'highlighted-question':
-            highlightedQuestion === 'Instrument Cluster Powered',
-        }"
-      >
+      <div v-if="currentQuestion && currentQuestion.type === 'radio'">
         <v-radio-group
           v-model="answers['Instrument Cluster Powered']"
           @change="handleInitialAnswer"
@@ -35,9 +29,6 @@
         <v-card
           v-for="(question, index) in followUpQuestions"
           :key="index"
-          :class="{
-            'highlighted-question': highlightedQuestion === question.id,
-          }"
           class="mb-4"
         >
           <v-card-title class="question-title">{{
@@ -115,7 +106,6 @@ export default {
   data() {
     return {
       valid: false, // To track the form's validity
-      highlightedQuestion: "", // Track the highlighted question
       showWarning: false, // Control warning visibility
       required: (v) => !!v || "This field is required", // Required validation rule
       numberRule: (v) =>
@@ -205,18 +195,6 @@ export default {
       }
     },
 
-    highlightQuestion() {
-      const queryHighlight = this.$route.query.highlight;
-      if (queryHighlight) {
-        this.highlightedQuestion = queryHighlight;
-
-        // Remove highlight after 3 seconds
-        setTimeout(() => {
-          this.highlightedQuestion = "";
-        }, 3000);
-      }
-    },
-
     getImage(fileName) {
       return require(`@/assets/images/${fileName}`);
     },
@@ -234,7 +212,6 @@ export default {
   mounted() {
     this.fetchInitialQuestion();
     this.prefillAnswer(); // Pre-fill if editing
-    this.highlightQuestion(); // Highlight the question based on query param
   },
 };
 </script>
@@ -243,10 +220,7 @@ export default {
 .selected-image {
   border: 4px solid #3498db;
 }
-.highlighted-question {
-  background-color: #ffeb3b; /* Yellow highlight */
-  transition: background-color 1s ease-in-out;
-}
+
 .question-title {
   white-space: normal; /* Allow wrapping */
   word-wrap: break-word; /* Ensure long words break correctly */

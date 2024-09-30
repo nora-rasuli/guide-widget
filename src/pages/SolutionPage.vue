@@ -51,11 +51,10 @@ export default {
     }),
   },
   methods: {
-    editAnswer(questionId) {
-      // Navigate to the question page and pass the question ID to allow editing
+    editAnswer() {
+      // Navigate to the question page
       this.$router.push({
         path: "/questions",
-        query: { highlight: questionId }, // Pass the questionId to highlight
       });
     },
   },
