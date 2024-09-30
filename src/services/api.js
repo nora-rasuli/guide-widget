@@ -24,8 +24,8 @@ export function getSolution(answer) {
         resolve(questionsData.solutions.engineLight);
       } else if (answer === "Battery Light") {
         resolve(questionsData.solutions.batteryLight);
-      } else if (answer === "Gas Light") {
-        resolve(questionsData.solutions.gasLight);
+      } else if (answer === "Oil Light") {
+        resolve(questionsData.solutions.oilLight);
       } else if (answer === "Coolant Light") {
         resolve(questionsData.solutions.coolantLight);
       } else {

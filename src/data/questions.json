@@ -21,20 +21,20 @@
       "type": "image",
       "options": [
         {
-          "src": "engine1.jpg",
+          "src": "engine.avif",
           "alt": "Engine Light"
         },
         {
-          "src": "engine2.jpg",
+          "src": "battery.avif",
           "alt": "Battery Light"
         },
         {
-          "src": "engine3.jpg",
-          "alt": "Gas Light"
+          "src": "coolant.avif",
+          "alt": "Coolant Light"
         },
         {
-          "src": "engine4.jpg",
-          "alt": "Coolant Light"
+          "src": "oil.avif",
+          "alt": "Oil Light"
         }
       ]
     }
@@ -44,16 +44,16 @@
       "solution": "Your car has Loose cable connection, Bad fuse box, or Bad ground wire. Contact our experts to troubleshoot."
     },
     "engineLight": {
-      "solution": "Your engine may have issues. We suggest checking your car’s engine oil and scheduling a service with our experts."
+      "solution": "There may be an issue with the engine or its related systems. Check if your gas cap is securely fastened. If the issue persists, contact our team for a detailed engine diagnostic."
     },
     "batteryLight": {
       "solution": "The battery may need replacement or charging. Contact our team for further assistance."
     },
-    "gasLight": {
-      "solution": "Your Fuel level may be low. Please check the Fuel level or visit a service center for further diagnostics."
+    "oilLight": {
+      "solution": "The oil level may be low or there could be an issue with the oil pressure system. Check your vehicle’s oil level and contact our team for further assistance."
     },
     "coolantLight": {
-      "solution": "Your Coolant temperature may be hight. Please turn off the car and stay away from the car until it cools down, and contact a service center for further diagnostics."
+      "solution": "Your vehicle may be running low on coolant, or there may be a problem with the cooling system. Check your coolant level and contact our team if the problem persists."
     }
   }
 }

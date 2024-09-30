@@ -93,7 +93,7 @@
         </v-card>
 
         <!-- Submit button -->
-        <v-btn color="primary" @click="validateAndSubmit">Submit Answers</v-btn>
+        <v-btn color="primary" @click="validateAndSubmit">Get Solution</v-btn>
       </div>
     </v-form>
   </v-container>

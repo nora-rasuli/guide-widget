@@ -27,12 +27,12 @@
       </v-row>
 
       <div v-if="feedbackSubmitted" class="mt-4">
-        <v-alert type="success" v-if="feedback === true">
+        <v-alert type="success" variant="tonal" v-if="feedback === true">
           Thank you for your feedback! We're glad the solution helped.
         </v-alert>
-        <v-alert type="error" v-if="feedback === false">
-          We're sorry the solution wasn't helpful. We'll strive to improve. In
-          the mean-time you can contact our exerts at (666)-666-666
+        <v-alert type="error" variant="tonal" v-if="feedback === false">
+          We’re sorry the solution didn’t help. Contact our experts at
+          (666)-666-666.
         </v-alert>
       </div>
     </v-card-text>
