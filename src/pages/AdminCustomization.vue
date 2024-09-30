@@ -1,52 +1,94 @@
 <template>
-  <v-container>
-    <h2>Admin Customization</h2>
+  <v-row justify="center">
+    <v-col cols="12" md="8" lg="6">
+      <v-card-title>
+        <h2 class="text-h5">Admin Customization</h2>
+      </v-card-title>
 
-    <!-- Header Color Picker -->
-    <v-color-picker
-      v-model="headerColor"
-      hide-canvas
-      variant="solo-filled"
-    ></v-color-picker>
+      <v-divider></v-divider>
 
-    <!-- Font Size Selector -->
-    <v-text-field
-      label="Font Size"
-      v-model="fontSize"
-      type="number"
-      min="12"
-      max="36"
-      variant="solo-filled"
-    ></v-text-field>
+      <v-card-text>
+        <!-- Header Color Picker -->
+        <v-row align="center" class="mb-4">
+          <v-col cols="12">
+            <!-- Hidden Color Picker Dialog -->
+            <v-color-picker
+              label="Select Header Color"
+              v-model="headerColor"
+              variant="solo"
+            ></v-color-picker>
+          </v-col>
+        </v-row>
 
-    <!-- Font Family Selector -->
-    <v-select
-      v-model="fontFamily"
-      :items="fontFamilies"
-      label="Select Font Family"
-      variant="solo-filled"
-    ></v-select>
+        <!-- Font Size Selector -->
+        <v-row align="center" class="mb-4">
+          <v-col cols="12">
+            <v-text-field
+              label="Font Size"
+              v-model="fontSize"
+              type="number"
+              min="12"
+              max="36"
+              variant="solo"
+              prepend-icon="mdi-format-size"
+            ></v-text-field>
+          </v-col>
+        </v-row>
 
-    <!-- Logo Uploader -->
-    <v-file-input
-      label="Upload Logo"
-      v-model="logoFile"
-      accept="image/*"
-      @change="convertToBase64"
-      clearable
-      variant="solo-filled"
-    ></v-file-input>
+        <!-- Font Family Selector -->
+        <v-row align="center" class="mb-4">
+          <v-col cols="12">
+            <v-select
+              v-model="fontFamily"
+              :items="fontFamilies"
+              label="Select Font Family"
+              variant="solo"
+              prepend-icon="mdi-format-font"
+            ></v-select>
+          </v-col>
+        </v-row>
 
-    <div v-if="logo">
-      <h3>Current Logo</h3>
-      <v-img :src="logo" max-width="150" max-height="150"></v-img>
-    </div>
+        <!-- Logo Uploader -->
+        <v-row align="center" class="mb-4">
+          <v-col cols="12">
+            <v-file-input
+              label="Upload Logo"
+              v-model="logoFile"
+              accept="image/*"
+              @change="convertToBase64"
+              clearable
+              prepend-icon="mdi-image"
+              variant="solo"
+            ></v-file-input>
+          </v-col>
+        </v-row>
 
-    <v-btn color="primary" class="mt-4" @click="saveSettings"
-      >Save Changes</v-btn
-    >
-    <v-btn color="primary" class="mt-4" @click="goToMain">Go to Widget </v-btn>
-  </v-container>
+        <!-- Logo Preview -->
+        <v-row justify="center" align="center" class="mb-4">
+          <v-col cols="12" class="text-center">
+            <h3 class="text-h6 mb-3">Current Logo</h3>
+            <v-img
+              v-if="logo"
+              :src="logo"
+              max-width="150"
+              max-height="150"
+              class="mx-auto"
+            ></v-img>
+          </v-col>
+        </v-row>
+
+        <!-- Save Button -->
+        <v-row align="center" class="mb-4">
+          <v-col cols="12" class="d-flex justify-center">
+            <v-btn color="primary" class="mr-4" @click="saveSettings">
+              Save Changes
+            </v-btn>
+            <v-btn color="secondary" @click="goToMain"> Go to Widget </v-btn>
+          </v-col>
+        </v-row>
+      </v-card-text>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
@@ -66,6 +108,7 @@ export default {
         "Courier",
         "Times New Roman",
       ],
+      showColorPicker: false,
     };
   },
   methods: {
@@ -100,5 +143,21 @@ export default {
 h2 {
   font-size: 24px;
   font-weight: bold;
+  margin-bottom: 16px;
+}
+.v-file-input {
+  margin-bottom: 20px;
+}
+.v-btn {
+  min-width: 150px;
+}
+/* Center the current logo */
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.v-color-picker {
+  width: auto !important;
+  max-width: 100% !important;
 }
 </style>
