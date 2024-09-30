@@ -1,43 +1,37 @@
 <template>
   <v-container>
-    <h2>Solution to your problem</h2>
-
     <!-- Display the answer summary -->
     <v-card class="mb-4">
       <v-card-title>Your answers</v-card-title>
       <v-card-text
         ><ul>
-          <li v-for="(answer, index) in userAnswers" :key="index">
-            {{ answer }}
+          <li
+            v-for="(answer, questionId) in userAnswers"
+            :key="questionId"
+            class="answer-item"
+          >
+            {{ questionId }}: {{ answer }}
+            <v-btn
+              small
+              class="edit-btn"
+              variant="outlined"
+              @click="editAnswer(questionId)"
+              >Edit</v-btn
+            >
           </li>
         </ul></v-card-text
       >
     </v-card>
 
-    <!-- Display a solution -->
-    <v-card>
-      <v-card-title>Our suggested Solution</v-card-title>
+    <!-- Display the solution fetched from Vuex -->
+    <v-card v-if="solution">
+      <v-card-title>Solution</v-card-title>
       <v-card-text>
-        Based on your answers, we suggest the following solution:
-        <ul>
-          <li v-if="userAnswers[0] === 'Red'">
-            Try focusing on calming activities to balance the intensity of your
-            choice.
-          </li>
-          <li v-if="userAnswers[1] === 'Banana'">
-            You seem to like healthy choices! Keep it up!
-          </li>
-          <li v-if="userAnswers[2]">
-            Plan a vacation to {{ userAnswers[2] }}!
-          </li>
-        </ul>
+        {{ solution.solution }}
       </v-card-text>
     </v-card>
     <!-- Feedback form at the bottom of the solution -->
     <FeedbackForm />
-    <v-btn color="primary" class="mt-4" @click="goBack"
-      >Back to Questions</v-btn
-    >
   </v-container>
 </template>
 
@@ -49,12 +43,20 @@ export default {
   components: {
     FeedbackForm,
   },
+
   computed: {
-    ...mapState(["userAnswers"]), // Map the state from Vuex to get user answers
+    ...mapState({
+      userAnswers: (state) => state.answers, // Map user's answers from Vuex state
+      solution: (state) => state.solution, // Map solution from Vuex state
+    }),
   },
   methods: {
-    goBack() {
-      this.$router.push("/questions"); // Navigate back to questions
+    editAnswer(questionId) {
+      // Navigate to the question page and pass the question ID to allow editing
+      this.$router.push({
+        path: "/questions",
+        query: { highlight: questionId }, // Pass the questionId to highlight
+      });
     },
   },
 };
@@ -67,5 +69,17 @@ h2 {
 
 .mb-4 {
   margin-bottom: 16px;
+}
+.answer-item {
+  display: flex;
+  justify-content: space-between; /* Ensures space between the answer and the edit button */
+  align-items: center; /* Vertically center the items */
+  padding: 8px 0; /* Add padding for spacing */
+}
+
+/* Edit button aligned to the right */
+.edit-btn {
+  margin-left: auto; /* Push the button to the right */
+  color: #333; /* Dark gray text */
 }
 </style>

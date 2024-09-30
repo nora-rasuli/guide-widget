@@ -6,21 +6,13 @@
       label="Problem Description"
       placeholder="Please describe the issue you're facing..."
       rows="5"
-      outlined
+      variant="solo-filled"
+      clearable
     ></v-textarea>
 
     <v-btn color="primary" class="mt-4" @click="submitDescription"
       >Submit</v-btn
     >
-
-    <div v-if="submitted" class="mt-4">
-      <h3>Submitted Problem Description:</h3>
-      <p>{{ problemDescription }}</p>
-      <v-btn color="success" class="mt-4" @click="goToQuestions"
-        >Proceed to Questions</v-btn
-      >
-      <!-- New Button -->
-    </div>
   </v-container>
 </template>
 
@@ -37,8 +29,6 @@ export default {
     submitDescription() {
       this.submitted = true;
       this.$store.commit("setProblemDescription", this.setProblemDescription);
-    },
-    goToQuestions() {
       this.$router.push("/questions"); // Navigate to Questions page
     },
   },

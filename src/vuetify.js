@@ -13,7 +13,7 @@ const vuetify = createVuetify({
   theme: {
     themes: {
       light: {
-        primary: "#3498db",
+        primary: "#dfe9fd",
         secondary: "#2ecc71",
         accent: "#8c9eff",
         error: "#b71c1c",

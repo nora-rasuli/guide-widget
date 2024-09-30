@@ -1,4 +1,9 @@
 import { createStore } from "vuex";
+import {
+  getInitialQuestion,
+  getFollowUpQuestions,
+  getSolution,
+} from "@/services/api";
 
 export default createStore({
   state: {
@@ -6,11 +11,15 @@ export default createStore({
     userAnswers: JSON.parse(localStorage.getItem("userAnswers")) || [],
     feedback: JSON.parse(localStorage.getItem("feedback")) || null,
     customization: JSON.parse(localStorage.getItem("customization")) || {
-      headerColor: "#3498db",
+      headerColor: "#dfe9fd",
       fontSize: "16",
       fontFamily: "Arial",
       logo: null,
     },
+    currentQuestion: null,
+    followUpQuestions: [],
+    answers: {}, // Stores user's answers
+    solution: null, // Stores the solution after answering questions
   },
   mutations: {
     setProblemDescription(state, description) {
@@ -28,6 +37,35 @@ export default createStore({
     setCustomization(state, customization) {
       state.customization = customization;
       localStorage.setItem("customization", JSON.stringify(customization));
+    },
+    setCurrentQuestion(state, question) {
+      state.currentQuestion = question;
+    },
+    setFollowUpQuestions(state, questions) {
+      state.followUpQuestions = questions;
+    },
+    setAnswer(state, { questionId, answer }) {
+      state.answers[questionId] = answer; // Store the user's answer with the question ID
+    },
+    setSolution(state, solution) {
+      state.solution = solution;
+    },
+  },
+  actions: {
+    fetchInitialQuestion({ commit }) {
+      return getInitialQuestion().then((question) => {
+        commit("setCurrentQuestion", question);
+      });
+    },
+    fetchFollowUpQuestions({ commit }) {
+      return getFollowUpQuestions().then((questions) => {
+        commit("setFollowUpQuestions", questions);
+      });
+    },
+    fetchSolution({ commit }, answer) {
+      return getSolution(answer).then((solution) => {
+        commit("setSolution", solution);
+      });
     },
   },
 });

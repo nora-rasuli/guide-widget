@@ -1,0 +1,59 @@
+{
+  "initialQuestion": {
+    "question": "Is the instrument cluster powered?",
+    "type": "radio",
+    "options": ["Yes", "No"]
+  },
+  "followUpQuestions": [
+    {
+      "id": "vin",
+      "question": "What is your VIN number?",
+      "type": "text"
+    },
+    {
+      "id": "year",
+      "question": "How old is your car?",
+      "type": "number"
+    },
+    {
+      "id": "warningLights",
+      "question": "What warning lights and indicators are lighted on your dashboard?",
+      "type": "image",
+      "options": [
+        {
+          "src": "engine1.jpg",
+          "alt": "Engine Light"
+        },
+        {
+          "src": "engine2.jpg",
+          "alt": "Battery Light"
+        },
+        {
+          "src": "engine3.jpg",
+          "alt": "Gas Light"
+        },
+        {
+          "src": "engine4.jpg",
+          "alt": "Coolant Light"
+        }
+      ]
+    }
+  ],
+  "solutions": {
+    "noPower": {
+      "solution": "Your car has Loose cable connection, Bad fuse box, or Bad ground wire. Contact our experts to troubleshoot."
+    },
+    "engineLight": {
+      "solution": "Your engine may have issues. We suggest checking your car’s engine oil and scheduling a service with our experts."
+    },
+    "batteryLight": {
+      "solution": "The battery may need replacement or charging. Contact our team for further assistance."
+    },
+    "gasLight": {
+      "solution": "Your Fuel level may be low. Please check the Fuel level or visit a service center for further diagnostics."
+    },
+    "coolantLight": {
+      "solution": "Your Coolant temperature may be hight. Please turn off the car and stay away from the car until it cools down, and contact a service center for further diagnostics."
+    }
+  }
+}

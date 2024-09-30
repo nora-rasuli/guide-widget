@@ -3,10 +3,11 @@
     <h2>Admin Customization</h2>
 
     <!-- Header Color Picker -->
-    <v-color-picker v-model="headerColor" hide-canvas></v-color-picker>
-    <v-btn color="primary" class="mt-4" @click="saveSettings"
-      >Save Changes</v-btn
-    >
+    <v-color-picker
+      v-model="headerColor"
+      hide-canvas
+      variant="solo-filled"
+    ></v-color-picker>
 
     <!-- Font Size Selector -->
     <v-text-field
@@ -15,6 +16,7 @@
       type="number"
       min="12"
       max="36"
+      variant="solo-filled"
     ></v-text-field>
 
     <!-- Font Family Selector -->
@@ -22,6 +24,7 @@
       v-model="fontFamily"
       :items="fontFamilies"
       label="Select Font Family"
+      variant="solo-filled"
     ></v-select>
 
     <!-- Logo Uploader -->
@@ -30,12 +33,19 @@
       v-model="logoFile"
       accept="image/*"
       @change="convertToBase64"
+      clearable
+      variant="solo-filled"
     ></v-file-input>
 
     <div v-if="logo">
       <h3>Current Logo</h3>
       <v-img :src="logo" max-width="150" max-height="150"></v-img>
     </div>
+
+    <v-btn color="primary" class="mt-4" @click="saveSettings"
+      >Save Changes</v-btn
+    >
+    <v-btn color="primary" class="mt-4" @click="goToMain">Go to Widget </v-btn>
   </v-container>
 </template>
 
@@ -78,13 +88,9 @@ export default {
         fontFamily: this.fontFamily,
         logo: this.logo,
       });
-      console.log(
-        "Settings saved:",
-        this.headerColor,
-        this.fontSize,
-        this.fontFamily,
-        this.logo
-      );
+    },
+    goToMain() {
+      this.$router.push("/");
     },
   },
 };

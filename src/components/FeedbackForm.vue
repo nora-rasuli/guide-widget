@@ -53,8 +53,6 @@ export default {
       this.feedback = isHelpful;
       this.feedbackSubmitted = true;
       this.$store.commit("setFeedback", this.feedback); // Save feedback to Vuex
-
-      console.log("Feedback submitted:", isHelpful ? "Helpful" : "Not Helpful");
     },
   },
 };
