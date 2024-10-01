@@ -1,15 +1,16 @@
 <template>
   <v-container>
     <v-form ref="problemForm" v-model="valid" lazy-validation>
-      <h2>Describe Your Problem</h2>
+      <h2>Describe Your Car Problem</h2>
       <v-textarea
         v-model="problemDescription"
         label="Problem Description"
-        placeholder="Please describe the issue you're facing..."
+        placeholder="Please describe the issue you're facing with your car..."
         rows="5"
         variant="solo-filled"
         clearable
         counter
+        class="mt-2"
         :rules="[required]"
       ></v-textarea>
 

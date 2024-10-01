@@ -18,7 +18,7 @@
       <v-toolbar :style="{ backgroundColor: headerColor }">
         <v-icon @click="goToAdmin" class="settings-icon"> mdi-cog </v-icon>
 
-        <v-toolbar-title>Guide</v-toolbar-title>
+        <v-toolbar-title>Car Guide</v-toolbar-title>
 
         <v-spacer></v-spacer>
         <div class="logo-minimize-wrapper">
