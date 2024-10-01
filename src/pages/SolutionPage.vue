@@ -1,10 +1,13 @@
 <template>
   <v-container>
-    <!-- Display the answer summary -->
-    <v-card class="mb-4">
+    <!-- Display the answer summary if there are any answers -->
+    <v-card
+      class="mb-4"
+      v-if="userAnswers && Object.keys(userAnswers).length > 0"
+    >
       <v-card-title>Your answers</v-card-title>
-      <v-card-text
-        ><ul>
+      <v-card-text>
+        <ul>
           <li
             v-for="(answer, questionId) in userAnswers"
             :key="questionId"
@@ -19,16 +22,14 @@
               >Edit</v-btn
             >
           </li>
-        </ul></v-card-text
-      >
+        </ul>
+      </v-card-text>
     </v-card>
 
     <!-- Display the solution fetched from Vuex -->
     <v-card v-if="solution">
       <v-card-title>Solution</v-card-title>
-      <v-card-text>
-        {{ solution.solution }}
-      </v-card-text>
+      <v-card-text>{{ solution.solution }}</v-card-text>
     </v-card>
     <!-- Feedback form at the bottom of the solution -->
     <FeedbackForm />
@@ -43,7 +44,6 @@ export default {
   components: {
     FeedbackForm,
   },
-
   computed: {
     ...mapState({
       userAnswers: (state) => state.answers, // Map user's answers from Vuex state
@@ -60,6 +60,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 h2 {
   font-weight: bold;

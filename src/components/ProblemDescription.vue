@@ -16,8 +16,8 @@
 
       <v-btn color="primary" class="mt-4" @click="submitDescription"
         >Submit</v-btn
-      ></v-form
-    >
+      >
+    </v-form>
   </v-container>
 </template>
 
@@ -26,24 +26,26 @@ export default {
   name: "ProblemDescription",
   data() {
     return {
-      valid: false, // To track the form's validity
+      problemDescription: "", // Let the user input the description
       required: (v) => !!v || "This field is required", // Required validation rule
-
-      problemDescription: "",
-      submitted: false,
-      showWarning: false,
     };
   },
   methods: {
     async submitDescription() {
-      const { valid } = await this.$refs.problemForm.validate();
-
-      if (valid) {
-        this.submitted = true;
-        this.$store.commit("setProblemDescription", this.setProblemDescription);
-        this.$router.push("/questions"); // Navigate to Questions page
-      } else {
-        this.showWarning = true;
+      // Validate the form without assigning `valid`
+      if (await this.$refs.problemForm.validate()) {
+        // If the description is exactly "My car is broken."
+        if (this.problemDescription === "My car is broken.") {
+          this.$store.commit("setProblemDescription", this.problemDescription);
+          this.$router.push("/questions"); // Navigate to the Questions page
+        }
+        // If the description is different, show the error message and route to SolutionPage
+        else {
+          this.$store.commit("setSolution", {
+            solution: "Sorry, we can't help you with your problem!",
+          });
+          this.$router.push("/solution"); // Redirect to Solution page
+        }
       }
     },
   },

@@ -96,10 +96,12 @@ export default {
 .v-card-text {
   overflow-y: auto;
 }
-
+.v-icon {
+  color: #333 !important; /* Dark gray icon */
+}
 /* Minimize icon button styling without background */
 .minimize-icon {
-  color: #333; /* Dark gray icon */
+  color: #333 !important; /* Dark gray icon */
   cursor: pointer;
   background-color: transparent; /* Remove background */
   border: none; /* Remove any border */
@@ -121,10 +123,6 @@ export default {
   width: 40px; /* Set logo width */
   height: 40px; /* Set logo height */
   margin-right: 8px; /* Reduce the space between the logo and minimize button */
-}
-
-.minimize-icon {
-  color: white; /* Ensure icon contrast with header color */
 }
 
 .v-card {
