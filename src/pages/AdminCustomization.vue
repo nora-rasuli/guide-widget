@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center">
-    <v-col cols="12" md="8" lg="6">
+    <v-col cols="12" md="10" lg="8">
       <v-card-title>
         <h2 class="text-h5">Admin Customization</h2>
       </v-card-title>
@@ -80,9 +80,9 @@
         <v-row align="center" class="mb-4">
           <v-col cols="12" class="d-flex justify-center">
             <v-btn color="primary" class="mr-4" @click="saveSettings">
-              Save Changes
+              Save changes
             </v-btn>
-            <v-btn color="secondary" @click="goToMain"> Go to Widget </v-btn>
+            <v-btn color="secondary" @click="goToMain"> Go to Widget</v-btn>
           </v-col>
         </v-row>
       </v-card-text>
@@ -140,7 +140,6 @@ export default {
 
 <style scoped>
 h2 {
-  font-size: 24px;
   font-weight: bold;
   margin-bottom: 16px;
 }
@@ -148,7 +147,7 @@ h2 {
   margin-bottom: 20px;
 }
 .v-btn {
-  min-width: 150px;
+  min-width: 170px;
 }
 /* Center the current logo */
 .mx-auto {

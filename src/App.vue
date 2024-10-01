@@ -4,19 +4,21 @@
     :style="{
       backgroundColor: headerColor,
       height: minimized ? '64px' : 'auto',
+      '--font-size': fontSize + 'px',
+      '--font-family': fontFamily,
     }"
   >
-    <v-card
-      :style="{
-        '--font-size': fontSize + 'px',
-        '--font-family': fontFamily,
-        backgroundColor: headerColor,
-        color: '#333' /* Ensure all text is dark gray (#333) */,
-      }"
-      elevation="4"
-    >
-      <v-toolbar :style="{ backgroundColor: headerColor }">
-        <v-icon @click="goToAdmin" class="settings-icon"> mdi-cog </v-icon>
+    <v-card elevation="4">
+      <v-toolbar
+        :style="{
+          backgroundColor: headerColor,
+        }"
+      >
+        <v-btn icon
+          ><v-icon @click="goToAdmin" class="settings-icon">
+            mdi-cog
+          </v-icon></v-btn
+        >
 
         <v-toolbar-title>Car Guide</v-toolbar-title>
 
@@ -80,7 +82,7 @@ export default {
   bottom: 20px;
   right: 20px;
   z-index: 9999;
-  width: 45vw;
+  width: 40vw;
   max-height: 90vh; /* Ensure the widget height doesn't exceed 90% of the viewport */
   overflow: auto; /* Allow content to scroll if it exceeds the max height */
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -90,52 +92,13 @@ export default {
 .min-height {
   min-height: 31vh;
 }
-.v-card {
-  width: 100%;
-  max-width: 100%;
-  background-color: inherit;
-  color: #333; /* Dark gray text */
-}
 
 .v-card-text {
   overflow-y: auto;
 }
 
-/* Flexbox header to align title, logo, and minimize button */
-.header-with-logo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 16px;
-  height: 56px;
-  background-color: inherit; /* Use the dynamic background color */
-}
-
-/* Ensure the title is aligned on the left */
-.header-with-logo .title {
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin: 0;
-  padding: 0;
-}
-
-/* Container for logo and minimize button on the right */
-.header-buttons {
-  display: flex;
-  align-items: center;
-}
-
-/* Ensure the logo is placed correctly */
-.logo-right {
-  margin-left: 8px;
-  max-width: 40px;
-  max-height: 40px;
-}
-
 /* Minimize icon button styling without background */
 .minimize-icon {
-  margin-left: 8px;
-  font-size: 24px;
   color: #333; /* Dark gray icon */
   cursor: pointer;
   background-color: transparent; /* Remove background */
@@ -144,8 +107,6 @@ export default {
   align-self: center;
 }
 .settings-icon {
-  margin-left: 8px;
-  font-size: 24px;
   color: #333; /* Dark gray icon */
   cursor: pointer;
   align-self: center;
@@ -162,10 +123,6 @@ export default {
   margin-right: 8px; /* Reduce the space between the logo and minimize button */
 }
 
-.minimize-btn {
-  margin-left: 0; /* Ensure the minimize button is close to the logo */
-}
-
 .minimize-icon {
   color: white; /* Ensure icon contrast with header color */
 }
@@ -174,9 +131,26 @@ export default {
   background-color: var(--header-color) !important;
   color: "#333"; /* Ensure text contrasts with the background */
   box-shadow: none !important;
+  width: 100%;
+  max-width: 100%;
+  background-color: inherit;
+  color: #333; /* Dark gray text */
 }
 .v-field input {
   background-color: #f7f7f7;
   box-shadow: none;
+}
+
+.widget-wrapper {
+  font-size: var(--font-size) !important;
+  font-family: var(--font-family) !important;
+}
+
+.widget-wrapper .v-card,
+.v-card-text,
+.v-card-title,
+p {
+  font-size: var(--font-size) !important;
+  font-family: var(--font-family) !important;
 }
 </style>
