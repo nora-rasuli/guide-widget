@@ -23,8 +23,7 @@
         <v-spacer></v-spacer>
         <div class="logo-minimize-wrapper">
           <v-img
-            v-if="logo"
-            :src="logo"
+            :src="logo || require('@/assets/images/logo.png')"
             alt="Logo"
             width="40"
             height="40"

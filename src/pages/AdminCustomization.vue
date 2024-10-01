@@ -64,11 +64,10 @@
         </v-row>
 
         <!-- Logo Preview -->
-        <v-row justify="center" align="center" class="mb-4">
+        <v-row justify="center" align="center" class="mb-4" v-if="logo">
           <v-col cols="12" class="text-center">
             <h3 class="text-h6 mb-3">Current Logo</h3>
             <v-img
-              v-if="logo"
               :src="logo"
               max-width="150"
               max-height="150"
