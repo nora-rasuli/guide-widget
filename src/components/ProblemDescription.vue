@@ -5,7 +5,7 @@
       <v-textarea
         v-model="problemDescription"
         label="Problem Description"
-        placeholder="Please describe the issue you're facing with your car..."
+        placeholder="Please write 'My car is broken.'"
         rows="5"
         variant="solo-filled"
         clearable
@@ -35,7 +35,7 @@ export default {
       // Validate the form without assigning `valid`
       if (await this.$refs.problemForm.validate()) {
         // If the description is exactly "My car is not working."
-        if (this.problemDescription === "My car is not working.") {
+        if (this.problemDescription === "My car is broken.") {
           this.$store.commit("setProblemDescription", this.problemDescription);
           this.$router.push("/questions"); // Navigate to the Questions page
         }

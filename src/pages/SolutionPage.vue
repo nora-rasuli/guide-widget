@@ -5,7 +5,7 @@
       class="mb-4"
       v-if="userAnswers && Object.keys(userAnswers).length > 0"
     >
-      <v-card-title>Your answers</v-card-title>
+      <v-card-title><strong>Your answers</strong></v-card-title>
       <v-card-text>
         <ul>
           <li
@@ -28,7 +28,7 @@
 
     <!-- Display the solution fetched from Vuex -->
     <v-card v-if="solution">
-      <v-card-title>Solution</v-card-title>
+      <v-card-title><strong>Solution</strong></v-card-title>
       <v-card-text>{{ solution.solution }}</v-card-text>
     </v-card>
     <!-- Feedback form at the bottom of the solution -->
