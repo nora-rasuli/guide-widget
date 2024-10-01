@@ -34,15 +34,16 @@ export default {
     async submitDescription() {
       // Validate the form without assigning `valid`
       if (await this.$refs.problemForm.validate()) {
-        // If the description is exactly "My car is broken."
-        if (this.problemDescription === "My car is broken.") {
+        // If the description is exactly "My car is not working."
+        if (this.problemDescription === "My car is not working.") {
           this.$store.commit("setProblemDescription", this.problemDescription);
           this.$router.push("/questions"); // Navigate to the Questions page
         }
         // If the description is different, show the error message and route to SolutionPage
         else {
           this.$store.commit("setSolution", {
-            solution: "Sorry, we can't help you with your problem!",
+            solution:
+              "Sorry, we can’t help you with this specific problem. Please contact our experts for further assistance.",
           });
           this.$router.push("/solution"); // Redirect to Solution page
         }

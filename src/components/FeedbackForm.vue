@@ -31,8 +31,8 @@
           Thank you for your feedback! We're glad the solution helped.
         </v-alert>
         <v-alert type="error" variant="tonal" v-if="feedback === false">
-          We’re sorry the solution didn’t help. Contact our experts at
-          (666)-666-666.
+          Sorry, we couldn't help you with this specific problem. Please contact
+          our experts for further assistance.
         </v-alert>
       </div>
     </v-card-text>
