@@ -159,7 +159,6 @@ p {
 @media (max-width: 600px) {
   .widget-wrapper {
     width: 90vw; /* Take up the entire width of the screen */
-    /* Remove rounded corners for full width */
   }
 }
 </style>
