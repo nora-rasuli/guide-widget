@@ -6,6 +6,13 @@ A simple Vue.js widget for interactive car problem diagnosis. The widget guides 
 
 You can check out the live version of the widget here: [Guide Widget Live Demo](https://guide-widget.vercel.app/)
 
+## Video Demo
+
+Watch the video demo: [https://github.com/user-attachments/assets/9807dc69-eca6-4720-8df6-1480cf404458]
+
+
+
+
 ## Features
 
 - **Problem Description**: Users describe the problem they're facing with their car.
