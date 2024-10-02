@@ -8,7 +8,7 @@ You can check out the live version of the widget here: [Guide Widget Live Demo](
 
 ## Video Demo
 
-Watch the video demo: [https://github.com/user-attachments/assets/9807dc69-eca6-4720-8df6-1480cf404458]
+Download the video demo: [https://github.com/user-attachments/assets/9807dc69-eca6-4720-8df6-1480cf404458]
 
 
 
