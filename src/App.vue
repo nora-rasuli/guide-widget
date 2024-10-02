@@ -151,4 +151,15 @@ p {
   font-size: var(--font-size) !important;
   font-family: var(--font-family) !important;
 }
+@media (max-width: 900px) {
+  .widget-wrapper {
+    width: 60vw; /* Take up 60% of the viewport width */
+  }
+}
+@media (max-width: 600px) {
+  .widget-wrapper {
+    width: 90vw; /* Take up the entire width of the screen */
+    /* Remove rounded corners for full width */
+  }
+}
 </style>
